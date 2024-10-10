@@ -56,7 +56,31 @@
     color: #666;
 }
 
-.deleteButton, .saveButton, .cancelButton {
+.langContainer {
+    display: flex;
+    gap: 10px;
+    height: 100px;
+    /* width: 80%; */
+    margin: 0px auto;
+}
+
+.choice {
+    display: flex;
+}
+
+.choice input {
+    margin: 0px 5px;
+    width: 20px;
+}
+
+.choice label {
+    display: flex;
+    align-items: center;
+}
+
+.deleteButton,
+.saveButton,
+.cancelButton {
     padding: 2px 15px;
     border: 1px solid #000;
     background-color: #e7e7e7;
@@ -93,5 +117,11 @@
         align-self: center;
         width: calc(300px - 15vw);
         /* max-width: 100%; */
+    }
+
+    .langContainer {
+        height: 120px;
+        flex-direction: column;
+        justify-content: center;
     }
 }

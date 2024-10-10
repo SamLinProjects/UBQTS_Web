@@ -9,10 +9,10 @@ import useProducts from "@/src/hooks/useProducts";
 export default function NewProduct() {
     const router = useRouter();
     const { postProducts } = useProducts();
-    const [ productName, setProductName ] = useState("");
-    const [ productDescription, setproductDescription ] = useState("");
-    const [ picture, setPicture ] = useState("");
-    const [ imgLng, setImgLng ] = useState("");
+    const [productName, setProductName] = useState("");
+    const [productDescription, setproductDescription] = useState("");
+    const [picture, setPicture] = useState("");
+    const [imgLng, setImgLng] = useState("");
 
     const handleSave = () => {
         if (!productName) {
@@ -36,7 +36,7 @@ export default function NewProduct() {
             } catch (error) {
                 alert("產品新增失敗！");
                 console.log(error);
-            }    
+            }
         }
     }
 
@@ -51,18 +51,18 @@ export default function NewProduct() {
                 <input className="img" placeholder="產品圖片網址" onChange={(e) => setPicture(e.target.value)} />
                 <textarea className="description" placeholder="產品描述" onChange={(e) => setproductDescription(e.target.value)} />
             </div>
-            <div>
-                <div>
-                    <input type="checkbox" value="en" checked={imgLng === "en"} onChange={(e) => {setImgLng(e.target.value)}} />
-                    <p>英文</p>
+            <div className="langContainer">
+                <div className="choice">
+                    <input type="checkbox" value="en" id="enProduct" checked={imgLng === "en"} onChange={(e) => { setImgLng(e.target.value) }} />
+                    <label htmlFor="enProduct">英文</label>
                 </div>
-                <div>
-                    <input type="checkbox" value="zh-tw" checked={imgLng === "zh-tw"} onChange={(e) => setImgLng(e.target.value)} />
-                    <p>繁體中文</p>
+                <div className="choice">
+                    <input type="checkbox" value="zh-tw" id="twProduct" checked={imgLng === "zh-tw"} onChange={(e) => setImgLng(e.target.value)} />
+                    <label htmlFor="twProduct">繁體中文</label>
                 </div>
-                <div>
-                    <input type="checkbox" value="zh-cn" checked={imgLng === "zh-cn"} onChange={(e) => setImgLng(e.target.value)} />
-                    <p>簡體中文</p>
+                <div className="choice">
+                    <input type="checkbox" value="zh-cn" id="cnProduct" checked={imgLng === "zh-cn"} onChange={(e) => setImgLng(e.target.value)} />
+                    <label htmlFor="cnProduct">簡體中文</label>
                 </div>
             </div>
             <div className="blankBanner" />

@@ -42,17 +42,19 @@
 .sidebarMenu.active {
     margin-right: 0px;
     transition: margin-right 0.8s ease-in-out;
+    overflow-y: auto;
 }
 
 .clsBtn {
     height: 80px;
+    min-height: 80px;
     width: 100%;
     display: flex;
     align-items: center;
     padding-left: 40px
 }
 
-.clsBtn > img {
+.clsBtn>img {
     height: 25px;
     width: 25px;
     cursor: pointer;

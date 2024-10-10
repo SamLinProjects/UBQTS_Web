@@ -1,3 +1,4 @@
+import "./NewAdsDialog.css";
 import React, { useState } from 'react';
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Input } from '@mui/material';
 
@@ -9,9 +10,9 @@ type NewAdsDialogProps = {
 };
 
 export default function NewAdsDialog({ open, onClose }: NewAdsDialogProps) {
-    const [ newImg, setNewImg ] = useState<string>("");
-    const [ image, setImage ] = useState(null);
-    const [ imgLng, setImgLng ] = useState<string>("");
+    const [newImg, setNewImg] = useState<string>("");
+    const [image, setImage] = useState(null);
+    const [imgLng, setImgLng] = useState<string>("");
     const { postAds } = useAds();
 
     const handleFileChange = (e: any) => {
@@ -27,14 +28,14 @@ export default function NewAdsDialog({ open, onClose }: NewAdsDialogProps) {
             return;
         } else {
             const formData = new FormData();
-            if(image) formData.append("file", image);
-            
+            if (image) formData.append("file", image);
+
             try {
                 postAds({ picture: newImg, language: imgLng });
                 alert("新增廣告成功！");
                 onClose();
-                location.reload();    
-            } catch(error) {
+                location.reload();
+            } catch (error) {
                 alert("新增廣告失敗！");
                 console.log("error: ", error);
             }
@@ -52,23 +53,23 @@ export default function NewAdsDialog({ open, onClose }: NewAdsDialogProps) {
                         value={newImg}
                         onChange={(e) => setNewImg(e.target.value)}
                     />
-                    <Input 
-                        type="file" 
-                        onChange={handleFileChange} 
+                    <Input
+                        type="file"
+                        onChange={handleFileChange}
                     />
                 </div>
-                <div>
-                    <div>
-                        <input type="checkbox" value="en" checked={imgLng === "en"} onChange={(e) => setImgLng(e.target.value)} />
-                        <p>英文</p>
+                <div className="langContainer">
+                    <div className="choice">
+                        <input type="checkbox" value="en" id="enAd" checked={imgLng === "en"} onChange={(e) => setImgLng(e.target.value)} />
+                        <label htmlFor="enAd">英文</label>
                     </div>
-                    <div>
-                        <input type="checkbox" value="zh-tw" checked={imgLng === "zh-tw"} onChange={(e) => setImgLng(e.target.value)} />
-                        <p>繁體中文</p>
+                    <div className="choice">
+                        <input type="checkbox" value="zh-tw" id="twAd" checked={imgLng === "zh-tw"} onChange={(e) => setImgLng(e.target.value)} />
+                        <label htmlFor="twAd">繁體中文</label>
                     </div>
-                    <div>
-                        <input type="checkbox" value="zh-cn" checked={imgLng === "zh-cn"} onChange={(e) => setImgLng(e.target.value)} />
-                        <p>簡體中文</p>
+                    <div className="choice">
+                        <input type="checkbox" value="zh-cn" id="cnAd" checked={imgLng === "zh-cn"} onChange={(e) => setImgLng(e.target.value)} />
+                        <label htmlFor="cnAd">簡體中文</label>
                     </div>
                 </div>
                 <DialogActions>

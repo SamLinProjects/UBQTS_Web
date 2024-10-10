@@ -18,11 +18,11 @@ export type NewsProps = {
 export default function NewsItem({ id, title, picture, description, date, isAdding, setIsAdding }: NewsProps) {
     const router = useRouter();
     const { data: session } = useSession();
-    const [ EditTitle, setEditTitle ] = useState(title);
-    const [ EditPicture, setEditPicture ] = useState(picture);
-    const [ EditDescription, setEditDescription ] = useState(description);
-    const [ imgLng, setImgLng ] = useState("");
-    const [ isEditing, setIsEditing ] = useState(false);
+    const [EditTitle, setEditTitle] = useState(title);
+    const [EditPicture, setEditPicture] = useState(picture);
+    const [EditDescription, setEditDescription] = useState(description);
+    const [imgLng, setImgLng] = useState("");
+    const [isEditing, setIsEditing] = useState(false);
     const { postNews, putNews, deleteNews } = useNews();
 
     useEffect(() => {
@@ -125,19 +125,19 @@ export default function NewsItem({ id, title, picture, description, date, isAddi
                     {isEditing && <input className="newsTitle" defaultValue={title} onChange={(e) => setEditTitle(e.target.value)} />}
                     {isEditing && <textarea className="newsContent" defaultValue={description} onChange={(e) => setEditDescription(e.target.value)} />}
                     {(isAdding || isEditing) &&
-                        <div>
-                        <div>
-                            <input type="checkbox" value="en" checked={imgLng === "en"} onChange={(e) => {setImgLng(e.target.value)}} />
-                            <p>英文</p>
-                        </div>
-                        <div>
-                            <input type="checkbox" value="zh-tw" checked={imgLng === "zh-tw"} onChange={(e) => setImgLng(e.target.value)} />
-                            <p>繁體中文</p>
-                        </div>
-                        <div>
-                            <input type="checkbox" value="zh-cn" checked={imgLng === "zh-cn"} onChange={(e) => setImgLng(e.target.value)} />
-                            <p>簡體中文</p>
-                        </div>
+                        <div className="langContainer">
+                            <div className="choice">
+                                <input type="checkbox" value="en" id="enNews" checked={imgLng === "en"} onChange={(e) => { setImgLng(e.target.value) }} />
+                                <label htmlFor="enNews">英文</label>
+                            </div>
+                            <div className="choice">
+                                <input type="checkbox" value="zh-tw" id="twNews" checked={imgLng === "zh-tw"} onChange={(e) => setImgLng(e.target.value)} />
+                                <label htmlFor="twNews">繁體中文</label>
+                            </div>
+                            <div className="choice">
+                                <input type="checkbox" value="zh-cn" id="cnNews" checked={imgLng === "zh-cn"} onChange={(e) => setImgLng(e.target.value)} />
+                                <label htmlFor="cnNews">簡體中文</label>
+                            </div>
                         </div>
                     }
                 </div>

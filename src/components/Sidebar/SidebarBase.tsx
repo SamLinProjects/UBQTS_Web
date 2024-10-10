@@ -25,6 +25,7 @@ export const SidebarBase = ({ t }: SidebarBaseProps) => {
             setTimeout(() => {
                 sidebar.classList.remove('active');
             }, 800);
+            document.body.style.overflowY = 'auto';
         }
 
         clsBtn.addEventListener('click', handleSidebarHide);
