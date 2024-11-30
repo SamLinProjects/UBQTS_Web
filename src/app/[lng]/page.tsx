@@ -29,10 +29,10 @@ export default function Home({ params: { lng } }: HomeProps) {
     const { getProducts } = useProducts();
     const { ads } = useContext(AdContext);
     const { products } = useContext(ProductContext);
-    const [ adsList, setAdsList ] = useState<Ad[]>([]);
-    const [ productsList, setProductsList ] = useState<Product[]>([]);
-    const [ showNewAdsDialog, setShowNewAdsDialog ] = useState(false);
-    const [ index, setIndex ] = useState(0);
+    const [adsList, setAdsList] = useState<Ad[]>([]);
+    const [productsList, setProductsList] = useState<Product[]>([]);
+    const [showNewAdsDialog, setShowNewAdsDialog] = useState(false);
+    const [index, setIndex] = useState(0);
 
     useEffect(() => {
         const fetchAdsList = async () => {
@@ -99,6 +99,18 @@ export default function Home({ params: { lng } }: HomeProps) {
                 </div>
             </div>}
 
+            <div className="blankBanner" />
+            <iframe
+                width="560"
+                height="315"
+                loading="lazy"
+                src="https://www.youtube.com/embed/iFYTCgEWPdk?si=vhBqX-pQkcGL5atx&amp;clip=UgkxUMnjTpA-Oe4Vxj_K7iEgZUxRyJcc43AT&amp;clipt=ELiUARiA9AM&amp;loop=1&amp;autoplay=1&amp;mute=1"
+                title="YouTube video player"
+                style={{ border: 'none', marginLeft: 'auto', marginRight: 'auto', display: 'block' }}
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
+            </iframe>
+
+            <div className="blankBanner" />
             <div className="blankBanner" />
 
             <div className="content origin">
